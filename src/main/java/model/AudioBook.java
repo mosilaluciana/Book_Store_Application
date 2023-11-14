@@ -2,17 +2,17 @@ package model;
 
 public class AudioBook extends Book{
 
-    public int runTime;
+    private int runTime;
 
-    public String getFormat() {
-        return format;
+    public int getFormat() {
+        return runTime;
     }
 
-    public void setFormat(String format){
-        this.format=format;
+    public void setRunTime(int runTime){
+        this.runTime = runTime;
     }
 
     public String toString(){
-        return super.toString()+String.format(" | Format %s", this.format);
+        return super.toString() + String.format(" | Run Time: %d", this.runTime);
     }
 }

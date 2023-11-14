@@ -13,7 +13,7 @@ public class EBook extends Book{
     }
 
     public String toString(){
-        return super.toString() + String.format(" | Format: %d", this.format);
+        return super.toString() + String.format(" | Format: %s", this.format);
     }
 
 }

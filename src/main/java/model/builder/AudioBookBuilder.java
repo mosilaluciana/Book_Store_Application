@@ -33,8 +33,8 @@ public class AudioBookBuilder {
         return this;
     }
 
-    public AudioBookBuilder setFormat(String format){
-        audioBook.setFormat(format);
+    public AudioBookBuilder setRunTime(int runTime){
+        audioBook.setRunTime(runTime);
         return this;
     }
 

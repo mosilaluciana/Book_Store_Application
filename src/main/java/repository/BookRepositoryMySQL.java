@@ -116,41 +116,18 @@ public class BookRepositoryMySQL<T> implements BookRepository<T>{
         }
     }
 
-//    private T getBookFromResultSet(ResultSet resultSet) throws SQLException{
-//        return (T) new BookBuilder()
-//                .setId(resultSet.getLong("id"))
-//                .setTitle(resultSet.getString("title"))
-//                .setAuthor(resultSet.getString("author"))
-//                .setPublishedDate(new java.sql.Date(resultSet.getDate("publishedDate").getTime()).toLocalDate())
-//                .build();
-//    }
+    private T getBookFromResultSet(ResultSet resultSet) throws SQLException{
+        return (T) new BookBuilder()
+                .setId(resultSet.getLong("id"))
+                .setTitle(resultSet.getString("title"))
+                .setAuthor(resultSet.getString("author"))
+                .setPublishedDate(new java.sql.Date(resultSet.getDate("publishedDate").getTime()).toLocalDate())
+                .build();
 
-    private T getBookFromResultSet(ResultSet resultSet) throws SQLException {
-        if (resultSet.getString("runtime") != null) {
-            return (T) new AudioBookBuilder()
-                    .setLength("runtime")
-                    .setId(resultSet.getLong("id"))
-                    .setTitle(resultSet.getString("title"))
-                    .setAuthor(resultSet.getString("author"))
-                    .setPublishedDate(new java.sql.Date(resultSet.getDate("publishedDate").getTime()).toLocalDate())
+        //AudioBookBuilder
 
-                    .build();
-        }else if (resultSet.getString("format") != null) {
-            return (T) new EBookBuilder()
-                    .setId(resultSet.getLong("id"))
-                    .setTitle(resultSet.getString("title"))
-                    .setAuthor(resultSet.getString("author"))
-                    .setPublishedDate(new java.sql.Date(resultSet.getDate("publishedDate").getTime()).toLocalDate())
-                    .setFormat(resultSet.getString("format"))
-                    .build();
+        //EBookBuilder
 
-        } else{
-            return (T) new BookBuilder()
-                    .setId(resultSet.getLong("id"))
-                    .setTitle(resultSet.getString("title"))
-                    .setAuthor(resultSet.getString("author"))
-                    .setPublishedDate(new java.sql.Date(resultSet.getDate("publishedDate").getTime()).toLocalDate())
-                    .build();
-        }
     }
+
 }
